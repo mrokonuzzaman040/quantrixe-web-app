@@ -1,10 +1,10 @@
-import About from '@/components/About'
+import CaseStudies from '@/components/CaseStudies'
 import Contact from '@/components/Contact'
 
-export default function AboutPage() {
+export default function CaseStudiesPage() {
   return (
     <main className="pt-16">
-      <About />
+      <CaseStudies />
       <Contact />
     </main>
   )

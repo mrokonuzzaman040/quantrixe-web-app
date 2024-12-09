@@ -1,55 +1,51 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
-import { gsap } from 'gsap'
-import { Code, Database, Brain } from 'lucide-react'
+import { motion, useAnimation } from 'framer-motion'
+import { FaRocket } from 'react-icons/fa'
+import Link from 'next/link'
+import { useEffect } from 'react'
 
-export default function Hero() {
-  const heroRef = useRef(null)
+const Hero = () => {
+  const controls = useAnimation()
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from('.hero-title', {
-        opacity: 0,
-        y: 50,
-        duration: 1,
-        ease: 'power3.out',
-      })
-      gsap.from('.hero-description', {
-        opacity: 0,
-        y: 30,
-        duration: 1,
-        delay: 0.5,
-        ease: 'power3.out',
-      })
-      gsap.from('.hero-icon', {
-        opacity: 0,
-        scale: 0.5,
-        duration: 0.5,
-        stagger: 0.2,
-        ease: 'back.out(1.7)',
-      })
-    }, heroRef)
-
-    return () => ctx.revert()
-  }, [])
+    controls.start({
+      rotateY: 360,
+      transition: { duration: 2, repeat: Infinity, ease: "linear" }
+    })
+  }, [controls])
 
   return (
-    <section ref={heroRef} className="h-screen flex items-center justify-center text-center">
-      <div className="container mx-auto px-6">
-        <h1 className="hero-title text-5xl md:text-7xl font-bold mb-6">
-          Innovate with TechNova
-        </h1>
-        <p className="hero-description text-xl md:text-2xl mb-12 max-w-3xl mx-auto">
-          Cutting-edge solutions in Software Development, Blockchain, and Machine Learning
-        </p>
-        <div className="flex justify-center space-x-8">
-          <Code className="hero-icon w-16 h-16 text-blue-400" />
-          <Database className="hero-icon w-16 h-16 text-green-400" />
-          <Brain className="hero-icon w-16 h-16 text-purple-400" />
-        </div>
-      </div>
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-300 dark:from-gray-800 dark:to-gray-900 animate-gradient-xy"></div>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        className="text-center z-10"
+      >
+        <motion.div
+          animate={controls}
+          className="inline-block mb-8"
+        >
+          <FaRocket className="text-6xl text-black dark:text-white" />
+        </motion.div>
+        <h1 className="text-5xl md:text-7xl font-bold mb-4 text-black dark:text-white">Welcome to Quantrixe</h1>
+        <p className="text-xl md:text-2xl mb-8 text-gray-700 dark:text-gray-300">Empowering Innovation Across the Digital Spectrum</p>
+        <Link href="/contact">
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-black dark:bg-white text-white dark:text-black font-bold py-3 px-8 rounded-full text-lg flex items-center justify-center mx-auto hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors duration-300"
+          >
+            <FaRocket className="mr-2" />
+            Get Started
+          </motion.button>
+        </Link>
+      </motion.div>
     </section>
   )
 }
+
+export default Hero
 

@@ -3,6 +3,12 @@
 @tailwind utilities;
 
 :root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+.dark {
   --foreground-rgb: 255, 255, 255;
   --background-start-rgb: 0, 0, 0;
   --background-end-rgb: 0, 0, 0;
@@ -18,39 +24,31 @@ body {
     rgb(var(--background-start-rgb));
 }
 
-canvas {
-  touch-action: none;
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@keyframes gradient-xy {
+  0%, 100% {
+    background-position: 0% 0%;
+  }
+  25% {
+    background-position: 100% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  75% {
+    background-position: 0% 100%;
   }
 }
 
-.bg-gradient-radial {
-  background-image: radial-gradient(circle, rgba(66, 135, 245, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+.animate-gradient-xy {
+  animation: gradient-xy 15s ease infinite;
+  background-size: 400% 400%;
 }
 
-.text-gradient {
-  background: linear-gradient(45deg, #4287f5, #f542e3);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.perspective-1000 {
+  perspective: 1000px;
 }
 
-.hover-3d {
-  transition: transform 0.3s ease-out;
-}
-
-.hover-3d:hover {
-  transform: translateY(-5px) rotateX(10deg) rotateY(10deg);
-}
-
-.glow {
-  box-shadow: 0 0 10px rgba(66, 135, 245, 0.5);
-}
-
-.glow:hover {
-  box-shadow: 0 0 20px rgba(66, 135, 245, 0.8);
+.backdrop-filter {
+  backdrop-filter: blur(10px);
 }
 
