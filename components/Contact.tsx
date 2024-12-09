@@ -1,8 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa'
-
+import { FaEnvelope } from 'react-icons/fa' // FaPhone, FaMapMarkerAlt
 const Contact = () => {
   return (
     <section id="contact" className="py-20 relative overflow-hidden">
@@ -22,16 +21,16 @@ const Contact = () => {
             <div className="space-y-4">
               <div className="flex items-center text-gray-700 dark:text-gray-300">
                 <FaEnvelope className="mr-4 text-2xl" />
-                <span>rokon@innonex.us</span>
+                <span>info@quantrixe.net</span>
               </div>
-              <div className="flex items-center text-gray-700 dark:text-gray-300">
+              {/* <div className="flex items-center text-gray-700 dark:text-gray-300">
                 <FaPhone className="mr-4 text-2xl" />
                 <span>+1 (123) 456-7890</span>
               </div>
               <div className="flex items-center text-gray-700 dark:text-gray-300">
                 <FaMapMarkerAlt className="mr-4 text-2xl" />
                 <span>1128 Vine Street, Waukegan, Illinois, USA - 60085</span>
-              </div>
+              </div> */}
             </div>
           </motion.div>
           <motion.div
