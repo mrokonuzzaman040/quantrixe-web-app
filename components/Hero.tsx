@@ -4,20 +4,36 @@ import { motion, useAnimation } from 'framer-motion'
 import { FaRocket } from 'react-icons/fa'
 import Link from 'next/link'
 import { useEffect } from 'react'
+import Lottie from 'react-lottie'
+import animationData from '@/public/animations/HERO.json'
 
 const Hero = () => {
   const controls = useAnimation()
 
-  useEffect(() => {
-    controls.start({
-      rotateY: 360,
-      transition: { duration: 2, repeat: Infinity, ease: "linear" }
-    })
-  }, [controls])
+  // useEffect(() => {
+  //   controls.start({
+  //     rotateY: 360,
+  //     transition: { duration: 2, repeat: Infinity, ease: "linear" }
+  //   })
+  // }, [controls])
+
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: 'xMidYMid slice'
+    }
+  }
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-300 dark:from-gray-800 dark:to-gray-900 animate-gradient-xy"></div>
+      {/* Lottie Animation as Background */}
+      <div className="absolute inset-0 z-0">
+        <Lottie options={defaultOptions} height="100%" width="100%" />
+        <div className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-md"></div>
+      </div>
+
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -48,4 +64,3 @@ const Hero = () => {
 }
 
 export default Hero
-
