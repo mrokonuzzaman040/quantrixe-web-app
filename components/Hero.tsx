@@ -10,12 +10,12 @@ import animationData from '@/public/animations/HERO.json'
 const Hero = () => {
   const controls = useAnimation()
 
-  // useEffect(() => {
-  //   controls.start({
-  //     rotateY: 360,
-  //     transition: { duration: 2, repeat: Infinity, ease: "linear" }
-  //   })
-  // }, [controls])
+  useEffect(() => {
+    controls.start({
+      rotateY: 360,
+      transition: { duration: 2, repeat: Infinity, ease: "linear" }
+    })
+  }, [controls])
 
   const defaultOptions = {
     loop: true,
