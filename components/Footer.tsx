@@ -1,54 +1,78 @@
-import Link from 'next/link'
-import { FaTwitter, FaLinkedin, FaGithub } from 'react-icons/fa'
+import Link from "next/link"
+import { FaTwitter, FaLinkedin, FaGithub } from "react-icons/fa"
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-100 dark:bg-gray-900 text-gray-600 dark:text-gray-400">
-      <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
-        <div className="xl:grid xl:grid-cols-3 xl:gap-8">
-          <div className="space-y-8 xl:col-span-1">
-            <Link href="/" className="text-black dark:text-white font-bold text-xl">Quantrixe</Link>
-            <p className="text-sm">Empowering Innovation Across the Digital Spectrum.</p>
-            <div className="flex space-x-6">
-              <a href="https://x.com/inn0nexus" className="text-gray-400 hover:text-gray-500">
-                <span className="sr-only">Twitter</span>
-                <FaTwitter className="h-6 w-6" />
-              </a>
-              <a href="https://www.linkedin.com/company/inno-nexus/" className="text-gray-400 hover:text-gray-500">
-                <span className="sr-only">LinkedIn</span>
-                <FaLinkedin className="h-6 w-6" />
-              </a>
-              <a href="https://github.com/innonex-us" className="text-gray-400 hover:text-gray-500">
-                <span className="sr-only">GitHub</span>
-                <FaGithub className="h-6 w-6" />
-              </a>
-            </div>
+    <footer className="bg-gray-900 text-white py-8">
+      <div className="container mx-auto px-6">
+        <div className="flex flex-wrap justify-between">
+          <div className="w-full md:w-1/4 mb-6 md:mb-0">
+            <h3 className="text-xl font-semibold mb-2">Quantrixe</h3>
+            <p>Empowering Innovation Across the Digital Spectrum</p>
           </div>
-          <div className="mt-12 grid grid-cols-2 gap-8 xl:mt-0 xl:col-span-2">
-            <div className="md:grid md:grid-cols-2 md:gap-8">
-              <div>
-                <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">Solutions</h3>
-                <ul className="mt-4 space-y-4">
-                  <li><Link href="/services#blockchain" className="text-base hover:text-gray-900 dark:hover:text-gray-100">Blockchain</Link></li>
-                  <li><Link href="/services#web3" className="text-base hover:text-gray-900 dark:hover:text-gray-100">Web 3.0</Link></li>
-                  <li><Link href="/services#mobile" className="text-base hover:text-gray-900 dark:hover:text-gray-100">Mobile Development</Link></li>
-                  <li><Link href="/services#ai" className="text-base hover:text-gray-900 dark:hover:text-gray-100">AI & Machine Learning</Link></li>
-                </ul>
-              </div>
-              <div className="mt-12 md:mt-0">
-                <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">Company</h3>
-                <ul className="mt-4 space-y-4">
-                  <li><Link href="/about" className="text-base hover:text-gray-900 dark:hover:text-gray-100">About</Link></li>
-                  <li><Link href="/case-studies" className="text-base hover:text-gray-900 dark:hover:text-gray-100">Case Studies</Link></li>
-                  <li><Link href="/careers" className="text-base hover:text-gray-900 dark:hover:text-gray-100">Careers</Link></li>
-                  <li><Link href="/contact" className="text-base hover:text-gray-900 dark:hover:text-gray-100">Contact</Link></li>
-                </ul>
-              </div>
+          <div className="w-full md:w-1/4 mb-6 md:mb-0">
+            <h3 className="text-xl font-semibold mb-2">Quick Links</h3>
+            <ul>
+              <li>
+                <Link href="/about" className="hover:text-lime-500">
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link href="/services" className="hover:text-lime-500">
+                  Services
+                </Link>
+              </li>
+              <li>
+                <Link href="/case-studies" className="hover:text-lime-500">
+                  Case Studies
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="hover:text-lime-500">
+                  Contact
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <div className="w-full md:w-1/4 mb-6 md:mb-0">
+            <h3 className="text-xl font-semibold mb-2">Contact Us</h3>
+            <p>1128 Vine Street, Waukegan, Illinois, USA - 60085</p>
+            <p>Phone: +1 (123) 456-7890</p>
+            <p>Email: info@quantrixe.net</p>
+          </div>
+          <div className="w-full md:w-1/4 mb-6 md:mb-0">
+            <h3 className="text-xl font-semibold mb-2">Follow Us</h3>
+            <div className="flex space-x-4">
+              <a
+                href="https://twitter.com/inn0nexus"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-2xl hover:text-lime-500"
+              >
+                <FaTwitter />
+              </a>
+              <a
+                href="https://www.linkedin.com/company/inno-nexus/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-2xl hover:text-lime-500"
+              >
+                <FaLinkedin />
+              </a>
+              <a
+                href="https://github.com/innonex-us"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-2xl hover:text-lime-500"
+              >
+                <FaGithub />
+              </a>
             </div>
           </div>
         </div>
-        <div className="mt-12 border-t border-gray-200 pt-8">
-          <p className="text-base text-gray-400 xl:text-center">&copy; 2023 Quantrixe. All rights reserved.</p>
+        <div className="mt-8 text-center">
+          <p>&copy; 2023 Quantrixe. All rights reserved.</p>
         </div>
       </div>
     </footer>

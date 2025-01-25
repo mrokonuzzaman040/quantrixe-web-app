@@ -1,11 +1,11 @@
-import Industries from '@/components/Industries'
-import Contact from '@/components/Contact'
+import Industries from "@/components/Industries"
+import AnimatedBackground from "@/components/AnimatedBackground"
 
 export default function IndustriesPage() {
   return (
-    <main className="pt-16">
+    <main className="pt-20">
+      <AnimatedBackground />
       <Industries />
-      <Contact />
     </main>
   )
 }

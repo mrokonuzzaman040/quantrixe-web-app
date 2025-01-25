@@ -1,67 +1,65 @@
-'use client'
+"use client"
 
-import { motion } from 'framer-motion'
-import { FaEnvelope } from 'react-icons/fa' // FaPhone, FaMapMarkerAlt
+import { useEffect, useRef } from "react"
+
 const Contact = () => {
+  const sectionRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible")
+        }
+      },
+      {
+        threshold: 0.1,
+      },
+    )
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current)
+      }
+    }
+  }, [])
+
   return (
-    <section id="contact" className="py-20 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800 animate-gradient-xy"></div>
-      <div className="container mx-auto px-4 relative z-10">
-        <h2 className="text-4xl font-bold text-center text-black dark:text-white mb-12">Contact Us</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
+    <section ref={sectionRef} id="contact" className="py-20 scroll-animation">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <h2
+          className="text-3xl sm:text-4xl font-bold mb-12 text-center text-gradient glitch"
+          data-text="Connect with the Future"
+        >
+          Connect with the Future
+        </h2>
+        <form className="max-w-lg mx-auto futuristic-card p-6 sm:p-8 rounded-lg">
+          <input
+            type="text"
+            placeholder="Your Name"
+            className="w-full mb-4 p-3 bg-transparent border border-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-foreground placeholder-muted-foreground transition-all duration-300 hover:glow"
+          />
+          <input
+            type="email"
+            placeholder="Your Email"
+            className="w-full mb-4 p-3 bg-transparent border border-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-foreground placeholder-muted-foreground transition-all duration-300 hover:glow"
+          />
+          <textarea
+            placeholder="Your Message"
+            className="w-full mb-6 p-3 bg-transparent border border-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-foreground placeholder-muted-foreground transition-all duration-300 hover:glow"
+            rows={4}
+          ></textarea>
+          <button
+            type="submit"
+            className="w-full bg-primary text-primary-foreground px-6 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 hover-glow"
           >
-            <h3 className="text-2xl font-semibold text-black dark:text-white mb-4">Get in Touch</h3>
-            <p className="text-gray-700 dark:text-gray-300 mb-6">
-              Have questions about our services or want to start a project? Reach out to us!
-            </p>
-            <div className="space-y-4">
-              <div className="flex items-center text-gray-700 dark:text-gray-300">
-                <FaEnvelope className="mr-4 text-2xl" />
-                <span>info@quantrixe.net</span>
-              </div>
-              {/* <div className="flex items-center text-gray-700 dark:text-gray-300">
-                <FaPhone className="mr-4 text-2xl" />
-                <span>+1 (123) 456-7890</span>
-              </div>
-              <div className="flex items-center text-gray-700 dark:text-gray-300">
-                <FaMapMarkerAlt className="mr-4 text-2xl" />
-                <span>1128 Vine Street, Waukegan, Illinois, USA - 60085</span>
-              </div> */}
-            </div>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <form className="bg-white dark:bg-gray-800 rounded-lg p-8 shadow-lg">
-              <div className="mb-4">
-                <label htmlFor="name" className="block text-gray-700 dark:text-gray-300 font-bold mb-2">Name</label>
-                <input type="text" id="name" name="name" className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100" required />
-              </div>
-              <div className="mb-4">
-                <label htmlFor="email" className="block text-gray-700 dark:text-gray-300 font-bold mb-2">Email</label>
-                <input type="email" id="email" name="email" className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100" required />
-              </div>
-              <div className="mb-4">
-                <label htmlFor="message" className="block text-gray-700 dark:text-gray-300 font-bold mb-2">Message</label>
-                <textarea id="message" name="message" rows={4} className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100" required></textarea>
-              </div>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                type="submit"
-                className="bg-black dark:bg-white text-white dark:text-black font-bold py-3 px-8 rounded-full text-lg hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors duration-300"
-              >
-                Send Message
-              </motion.button>
-            </form>
-          </motion.div>
-        </div>
+            Send Message
+          </button>
+        </form>
       </div>
     </section>
   )

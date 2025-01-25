@@ -1,11 +1,11 @@
-import Services from '@/components/Services'
-import Contact from '@/components/Contact'
+import Services from "@/components/Services"
+import AnimatedBackground from "@/components/AnimatedBackground"
 
 export default function ServicesPage() {
   return (
-    <main className="pt-16">
+    <main className="pt-20">
+      <AnimatedBackground />
       <Services />
-      <Contact />
     </main>
   )
 }

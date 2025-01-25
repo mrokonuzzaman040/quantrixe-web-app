@@ -1,54 +1,57 @@
-'use client'
+"use client"
 
-import { motion, useAnimation } from 'framer-motion'
-import Image from 'next/image'
-import { useEffect } from 'react'
+import { useEffect, useRef } from "react"
 
 const About = () => {
-  const controls = useAnimation()
+  const sectionRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
-    controls.start({
-      rotateY: [0, 360],
-      transition: { duration: 5, repeat: Infinity, ease: "linear" }
-    })
-  }, [controls])
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible")
+        }
+      },
+      {
+        threshold: 0.1,
+      },
+    )
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current)
+      }
+    }
+  }, [])
 
   return (
-    <section id="about" className="py-20 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800 animate-gradient-xy"></div>
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="flex flex-col md:flex-row items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            className="md:w-1/2 mb-8 md:mb-0"
-          >
-            <motion.div animate={controls} className="perspective-1000">
-              <Image
-                src="/about.jpg"
-                alt="About Quantrixe"
-                width={400}
-                height={400}
-                className="rounded-lg shadow-lg"
-              />
-            </motion.div>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="md:w-1/2 md:pl-12"
-          >
-            <h2 className="text-4xl font-bold text-black dark:text-white mb-6">About Quantrixe</h2>
-            <p className="text-gray-700 dark:text-gray-300 text-lg mb-6">
-              Quantrixe is a next-generation technology solutions provider dedicated to pushing the boundaries of what&apos;s possible in the digital world. Founded by a team of visionary developers and tech enthusiasts, we have emerged as a leader in offering comprehensive digital solutions that encompass blockchain, Web 3.0, mobile application development, and machine learning.
-            </p>
-            <p className="text-gray-700 dark:text-gray-300 text-lg">
-              Our journey began with a simple yet powerful idea: to harness the potential of cutting-edge technologies to create solutions that drive real-world change. Today, we stand at the forefront of digital innovation, helping businesses across various sectors leverage the latest in technology to enhance their operations, engage their audiences, and grow their enterprises.
-            </p>
-          </motion.div>
+    <section ref={sectionRef} id="about" className="py-20 scroll-animation">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <h2
+          className="text-3xl sm:text-4xl font-bold mb-8 text-center text-gradient glitch"
+          data-text="Pioneering the Digital Frontier"
+        >
+          Pioneering the Digital Frontier
+        </h2>
+        <div className="futuristic-card p-6 sm:p-8 rounded-lg max-w-4xl mx-auto moving-background">
+          <p className="text-base sm:text-lg md:text-xl text-center text-foreground mb-6">
+            At Quantrixe, we&apos;re not just predicting the future—we&apos;re actively shaping it. Our team of visionary
+            developers and tech enthusiasts are at the forefront of the digital revolution, harnessing the power of
+            cutting-edge technologies to create solutions that transcend the boundaries of what&apos;s possible.
+          </p>
+          <p className="text-base sm:text-lg md:text-xl text-center text-foreground mb-6">
+            From quantum-resistant blockchain architectures to AI-driven ecosystems and immersive metaverse experiences,
+            we&apos;re building the foundational technologies that will define the next era of human-machine interaction and
+            digital innovation.
+          </p>
+          <p className="text-base sm:text-lg md:text-xl text-center text-foreground">
+            Join us as we navigate the complexities of Web 3.0, push the limits of decentralized systems, and unlock new
+            realms of possibility in the ever-expanding digital universe.
+          </p>
         </div>
       </div>
     </section>

@@ -1,54 +1,285 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Rajdhani:wght@300;400;500;600;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-.dark {
-  --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 0, 0, 0;
-  --background-end-rgb: 0, 0, 0;
+  --primary: 132, 204, 22;
+  --primary-foreground: 0, 0, 0;
+  --background: 10, 25, 47;
+  --foreground: 255, 255, 255;
+  --muted: 75, 85, 99;
+  --muted-foreground: 156, 163, 175;
+  --accent: 37, 99, 235;
+  --accent-foreground: 255, 255, 255;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: rgb(var(--foreground));
+  background: rgb(var(--background));
+  font-family: "Rajdhani", sans-serif;
 }
 
-@keyframes gradient-xy {
-  0%, 100% {
-    background-position: 0% 0%;
-  }
-  25% {
-    background-position: 100% 0%;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Orbitron", sans-serif;
+}
+
+.futuristic-gradient {
+  background: linear-gradient(45deg, #84cc16, #22d3ee, #a855f7);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
   }
   50% {
-    background-position: 100% 100%;
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.scroll-animation {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.scroll-animation.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.glass-effect {
+  background: rgba(var(--primary), 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(var(--primary), 0.2);
+}
+
+.futuristic-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.futuristic-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.neon-text {
+  text-shadow: 0 0 5px #84cc16, 0 0 10px #84cc16, 0 0 15px #84cc16, 0 0 20px #84cc16;
+}
+
+.neon-border {
+  box-shadow: 0 0 5px #84cc16, 0 0 10px #84cc16, 0 0 15px #84cc16, 0 0 20px #84cc16;
+}
+
+.moving-background {
+  background: linear-gradient(45deg, #84cc16, #22d3ee, #a855f7);
+  background-size: 400% 400%;
+  animation: gradientMove 15s ease infinite;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.glitch {
+  position: relative;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch::before {
+  left: 2px;
+  text-shadow: -2px 0 #ff00c1;
+  clip: rect(24px, 550px, 90px, 0);
+  animation: glitch-anim-2 3s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+  left: -2px;
+  text-shadow: -2px 0 #00fff9;
+  clip: rect(85px, 550px, 140px, 0);
+  animation: glitch-anim 2.5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+  0% {
+    clip: rect(51px, 9999px, 95px, 0);
+  }
+  5% {
+    clip: rect(62px, 9999px, 147px, 0);
+  }
+  10% {
+    clip: rect(57px, 9999px, 10px, 0);
+  }
+  15% {
+    clip: rect(120px, 9999px, 59px, 0);
+  }
+  20% {
+    clip: rect(55px, 9999px, 145px, 0);
+  }
+  25% {
+    clip: rect(101px, 9999px, 26px, 0);
+  }
+  30% {
+    clip: rect(41px, 9999px, 146px, 0);
+  }
+  35% {
+    clip: rect(8px, 9999px, 107px, 0);
+  }
+  40% {
+    clip: rect(134px, 9999px, 134px, 0);
+  }
+  45% {
+    clip: rect(69px, 9999px, 69px, 0);
+  }
+  50% {
+    clip: rect(117px, 9999px, 146px, 0);
+  }
+  55% {
+    clip: rect(21px, 9999px, 70px, 0);
+  }
+  60% {
+    clip: rect(91px, 9999px, 53px, 0);
+  }
+  65% {
+    clip: rect(46px, 9999px, 1px, 0);
+  }
+  70% {
+    clip: rect(140px, 9999px, 42px, 0);
   }
   75% {
-    background-position: 0% 100%;
+    clip: rect(131px, 9999px, 108px, 0);
+  }
+  80% {
+    clip: rect(50px, 9999px, 71px, 0);
+  }
+  85% {
+    clip: rect(100px, 9999px, 69px, 0);
+  }
+  90% {
+    clip: rect(138px, 9999px, 138px, 0);
+  }
+  95% {
+    clip: rect(91px, 9999px, 121px, 0);
+  }
+  100% {
+    clip: rect(35px, 9999px, 72px, 0);
   }
 }
 
-.animate-gradient-xy {
-  animation: gradient-xy 15s ease infinite;
-  background-size: 400% 400%;
+@keyframes glitch-anim-2 {
+  0% {
+    clip: rect(132px, 9999px, 101px, 0);
+  }
+  5% {
+    clip: rect(17px, 9999px, 94px, 0);
+  }
+  10% {
+    clip: rect(40px, 9999px, 66px, 0);
+  }
+  15% {
+    clip: rect(87px, 9999px, 82px, 0);
+  }
+  20% {
+    clip: rect(137px, 9999px, 61px, 0);
+  }
+  25% {
+    clip: rect(34px, 9999px, 14px, 0);
+  }
+  30% {
+    clip: rect(133px, 9999px, 74px, 0);
+  }
+  35% {
+    clip: rect(76px, 9999px, 107px, 0);
+  }
+  40% {
+    clip: rect(59px, 9999px, 130px, 0);
+  }
+  45% {
+    clip: rect(29px, 9999px, 84px, 0);
+  }
+  50% {
+    clip: rect(22px, 9999px, 67px, 0);
+  }
+  55% {
+    clip: rect(67px, 9999px, 62px, 0);
+  }
+  60% {
+    clip: rect(10px, 9999px, 105px, 0);
+  }
+  65% {
+    clip: rect(78px, 9999px, 115px, 0);
+  }
+  70% {
+    clip: rect(105px, 9999px, 13px, 0);
+  }
+  75% {
+    clip: rect(15px, 9999px, 75px, 0);
+  }
+  80% {
+    clip: rect(66px, 9999px, 39px, 0);
+  }
+  85% {
+    clip: rect(133px, 9999px, 73px, 0);
+  }
+  90% {
+    clip: rect(36px, 9999px, 128px, 0);
+  }
+  95% {
+    clip: rect(68px, 9999px, 103px, 0);
+  }
+  100% {
+    clip: rect(14px, 9999px, 100px, 0);
+  }
 }
 
-.perspective-1000 {
-  perspective: 1000px;
+.hover-glow:hover {
+  box-shadow: 0 0 10px rgba(132, 204, 22, 0.5), 0 0 20px rgba(132, 204, 22, 0.3), 0 0 30px rgba(132, 204, 22, 0.1);
 }
 
-.backdrop-filter {
-  backdrop-filter: blur(10px);
+.text-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(45deg, #84cc16, #22d3ee);
+}
+
+@media (max-width: 640px) {
+  .text-gradient {
+    font-size: 2rem;
+  }
 }
 

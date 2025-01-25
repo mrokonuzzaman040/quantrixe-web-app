@@ -1,11 +1,11 @@
-import CaseStudies from '@/components/CaseStudies'
-import Contact from '@/components/Contact'
+import CaseStudies from "@/components/CaseStudies"
+import AnimatedBackground from "@/components/AnimatedBackground"
 
 export default function CaseStudiesPage() {
   return (
-    <main className="pt-16">
+    <main className="pt-20">
+      <AnimatedBackground />
       <CaseStudies />
-      <Contact />
     </main>
   )
 }

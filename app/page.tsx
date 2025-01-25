@@ -1,16 +1,18 @@
-import Hero from '@/components/Hero'
-import Services from '@/components/Services'
-import About from '@/components/About'
-import Industries from '@/components/Industries'
-import CaseStudies from '@/components/CaseStudies'
-import Contact from '@/components/Contact'
+import Hero from "@/components/Hero"
+import About from "@/components/About"
+import Services from "@/components/Services"
+import Industries from "@/components/Industries"
+import CaseStudies from "@/components/CaseStudies"
+import Contact from "@/components/Contact"
+import AnimatedBackground from "@/components/AnimatedBackground"
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <main>
+      <AnimatedBackground />
       <Hero />
-      <Services />
       <About />
+      <Services />
       <Industries />
       <CaseStudies />
       <Contact />
