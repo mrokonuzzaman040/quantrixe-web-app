@@ -48,7 +48,7 @@ export async function POST(request: Request) {
     // 4. Compose Email (HTML + Text)
     const mailOptions = {
       from: hostUser,
-      to: hostUser,
+      to: reciverMail,
       subject: "New Message from Contact Form",
       text: `
       Name: ${name}
