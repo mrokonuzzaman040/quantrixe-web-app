@@ -38,10 +38,18 @@ const Footer = () => {
           <div className="w-full md:w-1/4 mb-6 md:mb-0">
             <h3 className="text-xl font-semibold mb-2">Contact Us</h3>
             <p>1128 Vine Street, Waukegan, Illinois, USA - 60085</p>
-            <p>Phone: +1 (123) 456-7890</p>
-            <p>Email: info@quantrixe.net</p>
+            {/* <p>Phone: +1 (123) 456-7890</p> */}
+            <p className="mb-2">
+              Email:{" "}
+              <a
+                href="mailto:info@quantrixe.net"
+                className="hover:text-lime-500"
+              >
+                info@quantrixe.net
+              </a>
+            </p>
           </div>
-          <div className="w-full md:w-1/4 mb-6 md:mb-0">
+          {/* <div className="w-full md:w-1/4 mb-6 md:mb-0">
             <h3 className="text-xl font-semibold mb-2">Follow Us</h3>
             <div className="flex space-x-4">
               <a
@@ -69,7 +77,7 @@ const Footer = () => {
                 <FaGithub />
               </a>
             </div>
-          </div>
+          </div> */}
         </div>
         <div className="mt-8 text-center">
           <p>&copy; 2023 Quantrixe. All rights reserved.</p>
