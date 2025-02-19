@@ -7,14 +7,15 @@ const AnimatedBackground = () => {
   const containerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    if (!containerRef.current) return
+    const currentRef = containerRef.current;
+    if (!currentRef) return
 
     const scene = new THREE.Scene()
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
     const renderer = new THREE.WebGLRenderer({ alpha: true })
 
     renderer.setSize(window.innerWidth, window.innerHeight)
-    containerRef.current.appendChild(renderer.domElement)
+    currentRef.appendChild(renderer.domElement)
 
     const geometry = new THREE.IcosahedronGeometry(1, 1)
     const material = new THREE.MeshBasicMaterial({ color: 0x84cc16, wireframe: true, transparent: true, opacity: 0.3 })
@@ -56,7 +57,9 @@ const AnimatedBackground = () => {
 
     return () => {
       window.removeEventListener("resize", handleResize)
-      containerRef.current?.removeChild(renderer.domElement)
+      if (currentRef) {
+        currentRef.removeChild(renderer.domElement)
+      }
     }
   }, [])
 

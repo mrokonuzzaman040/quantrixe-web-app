@@ -7,14 +7,15 @@ const FuturisticCube = () => {
   const mountRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    if (!mountRef.current) return
+    const currentRef = mountRef.current;
+    if (!currentRef) return
 
     const scene = new THREE.Scene()
     const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000)
     const renderer = new THREE.WebGLRenderer({ alpha: true })
 
     renderer.setSize(200, 200)
-    mountRef.current.appendChild(renderer.domElement)
+    currentRef.appendChild(renderer.domElement)
 
     const geometry = new THREE.BoxGeometry(1, 1, 1)
     const material = new THREE.MeshBasicMaterial({
@@ -36,7 +37,9 @@ const FuturisticCube = () => {
     animate()
 
     return () => {
-      mountRef.current?.removeChild(renderer.domElement)
+      if (currentRef) {
+        currentRef.removeChild(renderer.domElement)
+      }
     }
   }, [])
 

@@ -9,10 +9,11 @@ const Hero = () => {
   const vantaRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!vantaEffect && vantaRef.current) {
+    const currentRef = vantaRef.current;
+    if (!vantaEffect && currentRef) {
       setVantaEffect(
         DOTS({
-          el: vantaRef.current,
+          el: currentRef,
           THREE: THREE,
           mouseControls: true,
           touchControls: true,
@@ -32,7 +33,7 @@ const Hero = () => {
     }
 
     return () => {
-      if (vantaEffect && vantaRef.current) {
+      if (vantaEffect && currentRef) {
         vantaEffect.destroy();
       }
     };
