@@ -6,11 +6,16 @@ const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 export async function POST(request: Request) {
   try {
     // 1. Parse and validate request body
-    const { name, email, message } = await request.json();
+    const { name, email, business, service, message } = await request.json();
 
-    if (!name?.trim() || !email?.trim() || !message?.trim()) {
+    if (
+      !name?.trim() ||
+      !email?.trim() ||
+      !message?.trim() ||
+      !service?.trim()
+    ) {
       return NextResponse.json(
-        { error: "All fields (name, email, message) are required." },
+        { error: "All fields (name, email, service, message) are required." },
         { status: 400 }
       );
     }
@@ -53,7 +58,8 @@ export async function POST(request: Request) {
       text: `
       Name: ${name}
       Email: ${email}
-
+      Business: ${business || "N/A"}
+      Service: ${service}
       Message:
       ${message}
       `,
@@ -95,6 +101,10 @@ export async function POST(request: Request) {
                       <!-- Content -->
                       <p style="margin:0 0 0.5rem;"><strong>Name:</strong> ${name}</p>
                       <p style="margin:0 0 0.5rem;"><strong>Email:</strong> ${email}</p>
+                      <p style="margin:0 0 0.5rem;"><strong>Business:</strong> ${
+                        business || "N/A"
+                      }</p>
+  <p style="margin:0 0 0.5rem;"><strong>Service:</strong> ${service}</p>
                       <p style="margin:0.5rem 0 0.5rem;"><strong>Message:</strong></p>
                       <div style="white-space:pre-wrap; line-height:1.5;">${message}</div>
                     </td>
@@ -128,7 +138,7 @@ export async function POST(request: Request) {
     return NextResponse.json(
       {
         message: "Email sent successfully!",
-        data: { name, email, message },
+        data: { name, email, business, service, message },
       },
       { status: 200 }
     );

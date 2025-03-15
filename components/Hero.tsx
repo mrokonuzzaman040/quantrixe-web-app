@@ -40,25 +40,40 @@ const Hero = () => {
   }, [vantaEffect]);
 
   return (
-    <div ref={vantaRef} className="h-screen flex items-center justify-center relative overflow-hidden">
+    <div
+      // ref={vantaRef}
+      className="h-screen flex items-center justify-center relative overflow-hidden"
+    >
       <div className="text-center z-10 px-4">
-        <h1
-          className="text-4xl sm:text-5xl md:text-7xl font-bold mb-4 glitch neon-text"
-          data-text="Welcome to the Future of Tech"
-        >
-          Welcome to the Future of Tech
+        <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-4 black-text">
+          Revolutionizing{" "}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-indigo-500">
+            Blockchain
+          </span>{" "}
+          with{" "}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-indigo-500">
+            AI{" "}
+          </span>
         </h1>
+
         <p className="text-lg sm:text-xl md:text-2xl text-foreground mb-8 max-w-3xl mx-auto">
-          Quantrixe: Where AI, Blockchain, and Quantum Computing Converge to Reshape Reality
+          Quantrixe empowers the next generation of decentralized solutions
+          through cutting-edge AI agents
         </p>
-        <button className="bg-primary text-primary-foreground px-6 py-3 sm:px-8 sm:py-4 rounded-full font-semibold text-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 animate-pulse hover-glow">
-          Explore the Nexus
-        </button>
+        <a href="#contact">
+          <button
+            className="px-6 py-3 sm:px-8 sm:py-4 rounded-full font-semibold text-lg
+      text-black bg-gradient-to-r from-lime-400 via-green-400 to-emerald-500
+      shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+          >
+            PING US
+          </button>
+        </a>
       </div>
-      <div className="absolute bottom-10 left-10 hidden sm:block">
+      <div className="absolute bottom-10 left-20 hidden sm:block">
         <FuturisticCube />
       </div>
-      <div className="absolute top-1/4 right-10 hidden sm:block">
+      <div className="absolute top-1.5/4 right-10 hidden sm:block">
         <FuturisticCube />
       </div>
     </div>

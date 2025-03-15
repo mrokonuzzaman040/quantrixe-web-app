@@ -1,32 +1,44 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import Link from "next/link"
-import { usePathname } from "next/navigation"
-import Image from "next/image"
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false)
-  const pathname = usePathname()
+  const [isScrolled, setIsScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0)
-    }
+      setIsScrolled(window.scrollY > 0);
+    };
 
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-background/80 backdrop-blur-md shadow-md" : "bg-transparent"
-        }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-background/80 backdrop-blur-md shadow-md"
+          : "bg-transparent"
+      }`}
     >
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <Link href="/" className="text-2xl font-bold text-primary flex items-center space-x-2 gap-2">
-            <Image src="/logo.jpeg" alt="logo" width={50} height={50} className="rounded-xl" />
+          <Link
+            href="/"
+            className="text-2xl font-bold text-primary flex items-center space-x-2 gap-2"
+          >
+            <Image
+              src="/logo.jpeg"
+              alt="logo"
+              width={50}
+              height={50}
+              className="rounded-xl"
+            />
             Quantrixe
           </Link>
           <div className="hidden md:flex space-x-6">
@@ -43,7 +55,7 @@ const Navbar = () => {
               Industries
             </NavLink>
             <NavLink href="/case-studies" active={pathname === "/case-studies"}>
-              Case Studies
+              Why Us
             </NavLink>
             <NavLink href="/contact" active={pathname === "/contact"}>
               Contact
@@ -52,17 +64,26 @@ const Navbar = () => {
         </div>
       </div>
     </nav>
-  )
-}
+  );
+};
 
-const NavLink = ({ href, children, active }: { href: string; children: React.ReactNode; active: boolean }) => (
+const NavLink = ({
+  href,
+  children,
+  active,
+}: {
+  href: string;
+  children: React.ReactNode;
+  active: boolean;
+}) => (
   <Link
     href={href}
-    className={`transition-colors duration-300 ${active ? "text-primary" : "text-muted-foreground hover:text-primary"}`}
+    className={`transition-colors duration-300 ${
+      active ? "text-primary" : "text-muted-foreground hover:text-primary"
+    }`}
   >
     {children}
   </Link>
-)
+);
 
-export default Navbar
-
+export default Navbar;

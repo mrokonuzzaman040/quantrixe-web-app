@@ -18,7 +18,7 @@
 body {
   color: rgb(var(--foreground));
   background: rgb(var(--background));
-  font-family: "Rajdhani", sans-serif;
+  font-family: "poppins", sans-serif;
 }
 
 h1,
@@ -27,7 +27,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Orbitron", sans-serif;
+  font-family: "poppins", sans-serif;
 }
 
 .futuristic-gradient {
@@ -81,11 +81,13 @@ h6 {
 }
 
 .neon-text {
-  text-shadow: 0 0 5px #84cc16, 0 0 10px #84cc16, 0 0 15px #84cc16, 0 0 20px #84cc16;
+  text-shadow: 0 0 5px #84cc16, 0 0 10px #84cc16, 0 0 15px #84cc16,
+    0 0 20px #84cc16;
 }
 
 .neon-border {
-  box-shadow: 0 0 5px #84cc16, 0 0 10px #84cc16, 0 0 15px #84cc16, 0 0 20px #84cc16;
+  box-shadow: 0 0 5px #84cc16, 0 0 10px #84cc16, 0 0 15px #84cc16,
+    0 0 20px #84cc16;
 }
 
 .moving-background {
@@ -267,7 +269,8 @@ h6 {
 }
 
 .hover-glow:hover {
-  box-shadow: 0 0 10px rgba(132, 204, 22, 0.5), 0 0 20px rgba(132, 204, 22, 0.3), 0 0 30px rgba(132, 204, 22, 0.1);
+  box-shadow: 0 0 10px rgba(132, 204, 22, 0.5), 0 0 20px rgba(132, 204, 22, 0.3),
+    0 0 30px rgba(132, 204, 22, 0.1);
 }
 
 .text-gradient {
@@ -282,4 +285,6 @@ h6 {
     font-size: 2rem;
   }
 }
+
+
 
