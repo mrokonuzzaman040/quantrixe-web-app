@@ -2,8 +2,6 @@
 
 import { useEffect, useRef } from "react";
 import {
-  FaAd,
-  FaAffiliatetheme,
   FaNetworkWired,
   FaRobot,
   FaProjectDiagram,
