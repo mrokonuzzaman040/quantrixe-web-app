@@ -85,7 +85,7 @@ const Contact = () => {
             Get in Touch
           </h3>
           <p className="text-center text-sm text-muted-foreground mb-4">
-            Let's discuss how we can build the future together.
+            Let&apos;s discuss how we can build the future together.
           </p>
 
           {/* Name */}
