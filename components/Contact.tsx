@@ -59,12 +59,17 @@ const Contact = () => {
         const data = await response.json();
         throw new Error(data.message);
       }
-    } catch (error: any) {
-      console.error("Error sending message:", error);
-      toast.error(error.message || "An unexpected error occurred.");
-    } finally {
-      setLoading(false);
-    }
+    } catch (error: unknown) {
+  console.error("Error sending message:", error);
+  if (error instanceof Error) {
+    toast.error(error.message || "An unexpected error occurred.");
+  } else {
+    toast.error("An unexpected error occurred.");
+  }
+} finally {
+  setLoading(false);
+}
+
   };
 
   return (
