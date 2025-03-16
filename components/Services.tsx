@@ -2,13 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import {
-  FaRobot,
   FaCubes,
-  FaVrCardboard,
-  FaShieldAlt,
-  FaCode,
-  FaLayerGroup,
-  FaProjectDiagram,
   FaFileContract,
   FaBrain,
   FaWrench,
