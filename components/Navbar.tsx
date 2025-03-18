@@ -26,20 +26,19 @@ const Navbar = () => {
           : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto px-6 py-4">
+      <div className="container mx-auto px-20 py-4">
         <div className="flex items-center justify-between">
           <Link
             href="/"
             className="text-2xl font-bold text-primary flex items-center space-x-2 gap-2"
           >
             <Image
-              src="/logo.jpeg"
+              src="/logo.png"
               alt="logo"
-              width={50}
-              height={50}
+              width={150}
+              height={150}
               className="rounded-xl"
             />
-            Quantrixe
           </Link>
           <div className="hidden md:flex space-x-6">
             <NavLink href="/" active={pathname === "/"}>
@@ -55,7 +54,7 @@ const Navbar = () => {
               Industries
             </NavLink>
             <NavLink href="/case-studies" active={pathname === "/case-studies"}>
-              Why Us
+              Why Us?
             </NavLink>
             <NavLink href="/contact" active={pathname === "/contact"}>
               Contact
