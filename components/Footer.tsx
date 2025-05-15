@@ -114,7 +114,7 @@ const Footer = () => {
             </h4>
             <p className="flex justify-center lg:justify-start items-start gap-2 text-sm text-gray-300 mb-3">
               <FaMapMarkerAlt className="text-lime-400 mt-1" />
-              1128 Vine Street, Waukegan, IL, USA - 60085
+              Building A1, Dubai Digital Park, Dubai Silicon Oasis, Dubai, United Arab Emirates
             </p>
             <p className="flex justify-center lg:justify-start items-center gap-2 text-sm text-gray-300">
               <FaEnvelope className="text-lime-400" />
