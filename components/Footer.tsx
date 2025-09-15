@@ -4,7 +4,6 @@ import {
   FaLinkedin,
   FaGithub,
   FaEnvelope,
-  FaMapMarkerAlt,
 } from "react-icons/fa";
 
 const Footer = () => {
@@ -112,9 +111,9 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-4 text-lime-400">
               Contact
             </h4>
-            <p className="flex justify-center lg:justify-start items-start gap-2 text-sm text-gray-300 mb-3">
+            {/* <p className="flex justify-center lg:justify-start items-start gap-2 text-sm text-gray-300 mb-3">
               <FaMapMarkerAlt className="text-lime-400 mt-1" />
-            </p>
+            </p> */}
             <p className="flex justify-center lg:justify-start items-center gap-2 text-sm text-gray-300">
               <FaEnvelope className="text-lime-400" />
               <a
